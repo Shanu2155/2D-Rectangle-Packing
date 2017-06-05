@@ -1,4 +1,4 @@
-package mylogic2;
+package rectpack;
 
 import java.util.ArrayList;
 import java.util.Collections;
