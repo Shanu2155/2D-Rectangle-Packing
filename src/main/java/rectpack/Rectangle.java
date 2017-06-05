@@ -1,4 +1,4 @@
-package rectpack;
+package mylogic2;
 
 
 
@@ -8,9 +8,11 @@ import java.util.ArrayList;
  * Created by LG-2 on 6/1/2017.
  */
 public class Rectangle {
-    public int length,breadth,area;
+    public int length,breadth,id;
+    public static int counter;
     public Point bottomLeft,bottomRight,topLeft,topRight;
     public Rectangle(int length, int breadth){
+        this.id=counter++;
         this.length=length;
         this.breadth=breadth;
     }
@@ -82,7 +84,7 @@ public class Rectangle {
         return !r2.contains(r1);
     }
     public String toString(){
-        return "(L="+length+",B="+breadth+",TL="+topLeft+",TR="+topRight+",BL="+bottomLeft+",BR="+bottomRight+")";
+        return "("+id+" L="+length+",B="+breadth+",TL="+topLeft+",TR="+topRight+",BL="+bottomLeft+",BR="+bottomRight+")";
     }
     public static void main(String[] args) {
         Rectangle r1=new Rectangle(new Point(0,0),300,300);

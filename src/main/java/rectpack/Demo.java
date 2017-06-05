@@ -1,4 +1,4 @@
-package rectpack;
+package mylogic2;
 
 
 
@@ -54,10 +54,17 @@ public class Demo extends JFrame {
             for(Rectangle r:rectList){
                 //g.drawRect(r.x,r.y,r.w,r.h);
                 if(r!=null){
-//                    try{Thread.sleep(500);}catch (Exception e){}
+//                    try{Thread.sleep(200);}catch (Exception e){}
                     Color col=new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));
+//                    g.fillRect(r.topLeft.x,r.topLeft.y,r.length,r.breadth);
+                    g.setColor(Color.black);
+                    g.drawRect(r.topLeft.x,r.topLeft.y,r.length,r.breadth);
                     g.setColor(col);
-                    g.fillRect(r.topLeft.x,r.topLeft.y,r.length,r.breadth);
+                    g.fillRect(r.topLeft.x+1,r.topLeft.y+1,r.length-1,r.breadth-1);
+//                    g.drawString(new Integer(r.id).toString(),(r.topLeft.x+r.length)/2,(r.topLeft.y+r.breadth)/2);
+                    g.setColor(Color.white);
+                    g.drawString(new Integer(r.id).toString(),r.topLeft.x+r.length/2,r.topLeft.y+r.breadth/2);
+//                    g.drawString(new Integer(r.id).toString(),r.topLeft.x+10,r.topLeft.y+10);
                     c=(c+1)%colors.length;
                     //System.out.println(r);
                 }
