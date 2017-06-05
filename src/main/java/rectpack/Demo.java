@@ -11,18 +11,7 @@ import java.util.Random;
  * Created by LG-2 on 5/30/2017.
  */
 public class Demo extends JFrame {
-//    public Rectangle list[];
     public ArrayList<Rectangle> rectList;
-//    public Demo(int w, int h, Rectangle list[]) throws HeadlessException {
-//        super("DEMO");
-//        this.list=list;
-//        setForeground(Color.white);
-//        setBackground(Color.white);
-//        setSize(w,h);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setLocationRelativeTo(null);
-//        setVisible(true);
-//    }
     public Demo(int w, int h, ArrayList<Rectangle> rectList) throws HeadlessException {
         super("DEMO");
         this.rectList=rectList;
@@ -38,37 +27,22 @@ public class Demo extends JFrame {
         Color colors[]={Color.red,Color.green,Color.blue,Color.cyan,Color.orange,Color.magenta,Color.black,Color.pink,Color.yellow};
         Random random=new Random();
         int c=0;
-//        if(list!=null){
-//            for(Rectangle r:list){
-//                //g.drawRect(r.x,r.y,r.w,r.h);
-//                if(r!=null){
-//                    Color col=new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));
-//                    g.setColor(col);
-//                    g.fillRect(r.topLeft.x,r.topLeft.y,r.length,r.breadth);
-//                    c=(c+1)%colors.length;
-//                    //System.out.println(r);
-//                }
-//            }
-//        }
-// else {
-            for(Rectangle r:rectList){
-                //g.drawRect(r.x,r.y,r.w,r.h);
-                if(r!=null){
-//                    try{Thread.sleep(200);}catch (Exception e){}
-                    Color col=new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));
-//                    g.fillRect(r.topLeft.x,r.topLeft.y,r.length,r.breadth);
-                    g.setColor(Color.black);
-                    g.drawRect(r.topLeft.x,r.topLeft.y,r.length,r.breadth);
-                    g.setColor(col);
-                    g.fillRect(r.topLeft.x+1,r.topLeft.y+1,r.length-1,r.breadth-1);
-//                    g.drawString(new Integer(r.id).toString(),(r.topLeft.x+r.length)/2,(r.topLeft.y+r.breadth)/2);
-                    g.setColor(Color.white);
-                    g.drawString(new Integer(r.id).toString(),r.topLeft.x+r.length/2,r.topLeft.y+r.breadth/2);
-//                    g.drawString(new Integer(r.id).toString(),r.topLeft.x+10,r.topLeft.y+10);
-                    c=(c+1)%colors.length;
-                    //System.out.println(r);
-                }
+        for(Rectangle r:rectList){
+            if(r!=null){
+                //Generate random colors
+                Color col=new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));
+                g.setColor(Color.black);
+                //Draw outlines
+                g.drawRect(r.topLeft.x,r.topLeft.y,r.length,r.breadth);
+                g.setColor(col);
+                //Fill the rectangle with random color
+                g.fillRect(r.topLeft.x+1,r.topLeft.y+1,r.length-1,r.breadth-1);
+                g.setColor(Color.white);
+                //Number the rectangle according to its ID
+                g.drawString(new Integer(r.id).toString(),r.topLeft.x+r.length/2,r.topLeft.y+r.breadth/2);
+                c=(c+1)%colors.length;
             }
+        }
 
     }
 }
